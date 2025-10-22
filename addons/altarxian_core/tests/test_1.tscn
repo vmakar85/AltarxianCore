@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://s88f5qippn6m"]
+
+[ext_resource type="Script" uid="uid://ckshwv5t5txc1" path="res://addons/altarxian_core/tests/test_1.gd" id="1_ek88k"]
+[ext_resource type="Script" uid="uid://4nbcef7oh41n" path="res://addons/altarxian_core/runtime/managers/level_manager.gd" id="2_dc5yb"]
+[ext_resource type="PackedScene" uid="uid://bvs70qfdjo0du" path="res://addons/altarxian_core/tests/enemy0.tscn" id="3_pc43r"]
+[ext_resource type="Script" uid="uid://23pk1msg50ab" path="res://addons/altarxian_core/runtime/components/screen_borders.gd" id="4_nd0x7"]
+
+[node name="GameRoot" type="Node2D"]
+script = ExtResource("1_ek88k")
+
+[node name="EnemiesContainer" type="Node2D" parent="."]
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("2_dc5yb")
+enemy_scenes = Dictionary[String, PackedScene]({
+"0": ExtResource("3_pc43r")
+})
+metadata/_custom_type_script = "uid://4nbcef7oh41n"
+
+[node name="ScreenBorders" type="Node2D" parent="."]
+script = ExtResource("4_nd0x7")
+left_offset = 100.0
+right_offset = -100.0
+border_thickness = 200.0
+metadata/_custom_type_script = "uid://23pk1msg50ab"

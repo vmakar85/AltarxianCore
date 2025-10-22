@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvs70qfdjo0du"]
+
+[ext_resource type="Script" uid="uid://5kd8t6ptn08m" path="res://addons/altarxian_core/tests/enemy_0.gd" id="1_kk856"]
+[ext_resource type="Script" uid="uid://c0b7j1gw7w16x" path="res://addons/altarxian_core/runtime/components/rays.gd" id="1_lindu"]
+[ext_resource type="Script" uid="uid://crg006r2sgyon" path="res://addons/altarxian_core/runtime/components/anchor_follower.gd" id="3_se5ir"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t2rnq"]
+size = Vector2(64, 64)
+
+[node name="Enemy0" type="Node2D"]
+script = ExtResource("1_kk856")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_t2rnq")
+
+[node name="FormationRays" type="Node2D" parent="." node_paths=PackedStringArray("ray_left", "ray_right")]
+script = ExtResource("1_lindu")
+ray_left = NodePath("RayCast2DLeft")
+ray_right = NodePath("RayCast2DRight")
+metadata/_custom_type_script = "uid://c0b7j1gw7w16x"
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="FormationRays"]
+target_position = Vector2(-50, 0)
+collide_with_areas = true
+
+[node name="RayCast2DRight" type="RayCast2D" parent="FormationRays"]
+target_position = Vector2(50, 0)
+collision_mask = 0
+collide_with_areas = true
+
+[node name="AnchorFollower" type="Node" parent="."]
+script = ExtResource("3_se5ir")
+metadata/_custom_type_script = "uid://crg006r2sgyon"

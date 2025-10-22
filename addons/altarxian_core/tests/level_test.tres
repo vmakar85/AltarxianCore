@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=5 format=3 uid="uid://bomq2i5v3ajfn"]
+
+[ext_resource type="Script" uid="uid://dahrvmpvdre0x" path="res://runtime/scripts/enemy_override_resource.gd" id="1_4npd4"]
+[ext_resource type="Script" uid="uid://c82y8ubkwm38n" path="res://addons/altarxian_core/runtime/resources/level_resource.gd" id="1_d1fre"]
+[ext_resource type="Script" uid="uid://bcgb5hwkupryy" path="res://addons/altarxian_core/runtime/resources/formation_resource.gd" id="2_dg1e6"]
+
+[sub_resource type="Resource" id="Resource_ehcae"]
+script = ExtResource("2_dg1e6")
+ascii_layout = Array[String](["0", "0*0"])
+movement_speed = 102.19
+metadata/_custom_type_script = "uid://bcgb5hwkupryy"
+
+[resource]
+script = ExtResource("1_d1fre")
+formation = SubResource("Resource_ehcae")
+metadata/_custom_type_script = "uid://c82y8ubkwm38n"
